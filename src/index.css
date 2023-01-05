@@ -1,13 +1,94 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+.nav {
+  background-color: lightgoldenrodyellow;
+  display: flex;
+  flex-wrap: wrap;
+  color: black;
+  justify-content: center;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+p {
+  padding: 10px;
+}
+
+.add-button {
+  background-color: #4caf50; /* Green */
+  border: none;
+  color: white;
+  padding: 12px 24px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+.add-button:hover {
+  background-color: white;
+  color: black;
+}
+
+.draggable-textarea {
+  background-color: yellow;
+  color: black;
+  z-index: 1;
+  position: absolute;
+}
+
+.drop-zone {
+  position: fixed;
+  height: 100px;
+  line-height: 100px;
+  background-color: red;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  margin-bottom: 0px;
+  text-align: center;
+}
+
+.dragArea {
+  width: 99vw;
+  height: 90vh;
+}
+
+#new-model {
+  height: 400px;
+  width: 400px;
+  background-color: bisque;
+  text-align: center;
+  left: 40%;
+  right: 50%;
+  top: 20%;
+  z-index: 3;
+  position: absolute;
+  visibility: hidden;
+  align-items: center;
+}
+
+input {
+  margin-top: 20%;
+  width: 250px;
+}
+
+button {
+  margin-top: 20%;
+}
+
+select {
+  margin-top: 10%;
+}
+
+#change-color {
+  height: 200px;
+  width: 200px;
+  background-color: bisque;
+  text-align: center;
+  left: 40%;
+  right: 50%;
+  top: 20%;
+  z-index: 3;
+  position: absolute;
+  align-items: center;
 }
