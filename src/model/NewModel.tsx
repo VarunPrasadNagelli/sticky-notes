@@ -1,5 +1,6 @@
 import { useState } from "react";
 
+//right click to access new model and create the note with color
 const NewModel = ({ createCustom }: any) => {
   const [row, setRow] = useState<number>();
   const [col, setCol] = useState<number>();
@@ -7,6 +8,7 @@ const NewModel = ({ createCustom }: any) => {
   const [y, setY] = useState<number>();
   const [color, setColor] = useState<string>();
 
+  // listen for right click event and position where it should be
   window.oncontextmenu = function (e: MouseEvent) {
     setX(+e.clientX);
     setY(+e.clientY);
@@ -23,11 +25,11 @@ const NewModel = ({ createCustom }: any) => {
   };
 
   const handleClick = () => {
-    console.log(x, y);
     createCustom(x, y, row, col, color);
     (document.getElementById("new-model") as HTMLDivElement).style.visibility =
       "hidden";
   };
+
   const handleColor: React.ChangeEventHandler<HTMLSelectElement> = (e) => {
     setColor(e.target.value);
   };

@@ -4,6 +4,7 @@ type ChangeColorModelProps = {
   updateColor: Function;
 };
 
+//change the color of note by double clicking 
 const ChangeColorModel: React.FC<ChangeColorModelProps> = ({
   id,
   setColorModel,

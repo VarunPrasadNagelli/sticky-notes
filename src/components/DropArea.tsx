@@ -15,14 +15,18 @@ const DropArea = ({
   updateNote,
   updateColor,
 }: DropAreaProps) => {
+
   let dragid: number;
   const prevID = useRef<string>();
   const [colorModel, setColorModel] = useState(false);
   const [clickId, setClickId] = useState(1);
+
+  // the drag reason the note will be drag and drop
   const handleDragOver: React.DragEventHandler<HTMLDivElement> = (e) => {
     e.preventDefault();
   };
 
+  // to make selected note on the top
   const updatezIndex = (id: string) => {
     if (prevID.current) {
       const removeIndex = document.getElementById(prevID.current)!;
@@ -30,9 +34,11 @@ const DropArea = ({
     }
     prevID.current = id;
     const item = document.getElementById(id)!;
-    item.style.zIndex = "50";
+    item.style.zIndex = "5";
   };
 
+
+  // listen for double click events for showing the color change model 
   const handleClick: React.MouseEventHandler<HTMLTextAreaElement> = (e) => {
     e.preventDefault();
     setClickId(+e.currentTarget.id);
@@ -47,9 +53,13 @@ const DropArea = ({
     }
   };
 
+  // up on drop it takes the new position and update the array 
   const handleDragEnd: React.DragEventHandler<HTMLTextAreaElement> = (e) => {
     e.preventDefault();
+
+    //not working with typescript
     e.dataTransfer.setData("text/plain", e.currentTarget.id);
+
     const item = document.getElementById(
       e.currentTarget.id
     )! as HTMLTextAreaElement;
@@ -59,6 +69,7 @@ const DropArea = ({
     updateNote(numberId, e.clientX, e.clientY, +item.rows, +item.cols);
   };
 
+  // set drag id for frop zone as DragEvent.dataTransfer is not working 
   const handleDrag: React.DragEventHandler<HTMLTextAreaElement> = (e) => {
     e.preventDefault();
     dragid = +e.currentTarget.id;
